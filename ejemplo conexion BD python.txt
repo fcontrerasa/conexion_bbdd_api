@@ -1,0 +1,23 @@
+import cx_Oracle
+
+
+dsn_tns = cx_Oracle.makedsn('129.151.98.153', '1521', service_name='dwhmed.publicsubnetexa.biprodvcn.oraclevcn.com')
+conn = cx_Oracle.connect(user=r'TARGET_USER_OPER_PREP', password=r'PR2PR4D5CT3V4#_2021', dsn=dsn_tns)
+
+
+c = conn.cursor()
+c.execute('select * from target_user_oper_prep.TBL_REGISTRO_CARGA_SUPERINT where IND_CARGA_PENDIENTE = 1')
+for row in c:
+    try:
+        WebDriverWait(driver, 15).until(expected_conditions.element_to_be_clickable((By.XPATH,row[3]))).click()
+        time.sleep(1)
+    except:
+        print('Error en el módulo ', row[0], ' periodo ', row[1])
+
+
+log = "insert into TARGET_USER_OPER_PREP.TBL_REGISTRO_CARGA_SUPERINT_LOG values(sysdate,'"+row[0]+"','"+row[1]+"','"+row[2]+"',1,1,0)"
+c.execute(log)
+conn.commit()
+
+
+conn.close()
