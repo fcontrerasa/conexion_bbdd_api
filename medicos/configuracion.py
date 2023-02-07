@@ -1,11 +1,11 @@
 from datetime import datetime, timedelta
 
 # cambiar 
-base_path = '/home/opc/api_empleador2/api_empleador'
+base_path = 'C:/Users/devbanmedica/Documents/GitHub/conexion_bbdd_api/medicos'
 carpeta_modelos = base_path+'/modelos'
 carpeta_modelo_medicos = carpeta_modelos+'/medicos'
-carpeta_modelo_medicos_generales = carpeta_modelos+'/medicos/generales'
-carpeta_modelo_medicos_psiquiatria = carpeta_modelos+'/medicos/psiquiatria'
+carpeta_modelo_medicos_generales = carpeta_modelos+'/generales'
+carpeta_modelo_medicos_psiquiatria = carpeta_modelos+'/psiquiatria'
 carpeta_modelo_pacientes = carpeta_modelos+'/pacientes'
 #carpeta_modelo_empleadores = carpeta_modelos+'/empleador'
 
